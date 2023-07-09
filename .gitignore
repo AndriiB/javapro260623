@@ -12,5 +12,6 @@ target/
 *.iml
 *.ipr
 
+*.git
 ### Mac OS ###
 .DS_Store
