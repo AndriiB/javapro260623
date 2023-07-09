@@ -37,4 +37,24 @@ private int age;
     public int getAge() {
         return age;
     }
+
+    public void setLastFirstName(String lastFirstName) {
+        this.lastFirstName = lastFirstName;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }
