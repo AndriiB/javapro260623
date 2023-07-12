@@ -1,12 +1,8 @@
 package hw4;
 
-public class Animal {
+ abstract class Animal {
 
-    public void animalRun(int distance) {
-        System.out.println("The animal run " + distance + "m");
-    }
+    public abstract void animalRun(int distance);
 
-    public void animalSwim(int distance) {
-        System.out.println("The animal swam " + distance + "m");
-    }
+    public abstract void animalSwim(int distance);
 }

@@ -5,7 +5,7 @@ public class AnimalMain {
         Dog dogBobik = new Dog("Bobik");
         dogBobik.animalRun(501);
         dogBobik.animalSwim(11);
-
+        
         Dog dogPatron = new Dog("Patron");
         dogPatron.animalRun(499);
         dogPatron.animalSwim(9);
