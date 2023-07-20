@@ -10,6 +10,8 @@ public class Treadmill implements Obstacle {
 
     @Override
     public void overcome(Participant participant) {
-        participant.run(distance);
+        if (participant.proceed()) {
+            participant.run(distance);
+        }
     }
 }
