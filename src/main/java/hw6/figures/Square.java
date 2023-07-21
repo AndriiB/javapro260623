@@ -1,7 +1,7 @@
 package hw6.figures;
 
 public class Square implements Figure {
-    private double side;
+    private final double side;
 
     public Square(double side) {
         this.side = side;
@@ -10,6 +10,6 @@ public class Square implements Figure {
 
     @Override
     public double figureArea() {
-        return side * side;
+        return Math.pow(side, 2);
     }
 }

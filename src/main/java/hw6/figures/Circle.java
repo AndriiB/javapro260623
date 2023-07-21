@@ -2,7 +2,7 @@ package hw6.figures;
 
 public class Circle implements Figure {
 
-    private double radius;
+    private final double radius;
 
     public Circle(double radius) {
         this.radius = radius;
@@ -10,6 +10,11 @@ public class Circle implements Figure {
 
     @Override
     public double figureArea() {
-        return Math.PI * radius * radius;
+        return Math.PI * Math.pow(radius,2);
+    }
+
+    public double getRadius() {
+        return radius;
     }
 }
+
