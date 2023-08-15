@@ -62,13 +62,27 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
-    public boolean addAll(Collection c) {
-        return false;
+    public boolean addAll(Collection<? extends T> c) {
+        boolean added = false;
+        for (T element : c) {
+            add(element);
+            added = true;
+        }
+        return added;
     }
 
     @Override
-    public boolean addAll(int index, Collection c) {
-        return false;
+    public boolean addAll(int index, Collection<? extends T> c) {
+        if (index < 0 || index > size()) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size());
+        }
+
+        boolean added = false;
+        for (T element : c) {
+            add(index++, element);
+            added = true;
+        }
+        return added;
     }
 
     @Override
@@ -81,11 +95,20 @@ public class ArrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
+        if (index >= 0 && index < size()) {
+            return get(index);
+        }
         return null;
     }
 
     @Override
     public Object set(int index, Object element) {
+
+        if (index >= 0 && index < size()) {
+            T replaced = get(index);
+            set(index, element);
+            return replaced;
+        }
         return null;
     }
 
@@ -169,12 +192,28 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
-    public boolean containsAll(Collection c) {
-        return false;
+    public boolean containsAll(Collection<?> c) {
+        for (Object element : c) {
+            if (!contains(element)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public Object[] toArray(Object[] a) {
-        return new Object[0];
-    }
+        if (a.length < size()) {
+            a = Arrays.copyOf(a, size());
+        }
+
+        for (int i = 0; i < size(); i++) {
+            a[i] = get(i);
+        }
+
+        if (a.length > size()) {
+            a[size()] = null;
+        }
+        return a;
+}
 }
